@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import ColorForm from "./components/ColorForm";
+import ColorDisplay from "./components/ColorDisplay";
+import React, { useState } from "react";
 
 function App() {
+  const [boxArr, addToBoxArr] = useState([]);
+  console.log(boxArr);
+  const addBox = (newBox) => {
+    addToBoxArr((prevState) => [...prevState, newBox]);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ColorForm onNewBox={addBox} />
+      {boxArr.map(({ color, height, width }, index) => (
+        <ColorDisplay key={index} color={color} height={height} width={width} />
+      ))}
     </div>
   );
 }
 
 export default App;
+
+console.log("hi");

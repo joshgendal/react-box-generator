@@ -1,5 +1,11 @@
 .App {
-  text-align: center;
+  width: 80vw;
+  margin-left: 10%;
+}
+
+.box {
+  display: inline-block;
+  margin-left: 15px;
 }
 
 .App-logo {
